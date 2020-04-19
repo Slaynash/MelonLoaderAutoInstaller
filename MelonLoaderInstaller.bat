@@ -8,9 +8,9 @@ echo ///
 echo ///
 echo ///
 echo:
-echo --------------------------------------------------
-echo ^| MelonLoader 0.1.0 AutoInstaller v1 by Slaynash ^|
-echo --------------------------------------------------
+echo ----------------------------------------------------
+echo ^| MelonLoader 0.1.0 AutoInstaller v1.1 by Slaynash ^|
+echo ----------------------------------------------------
 echo:
 
 echo Cleaning up existing MelonLoader installation
