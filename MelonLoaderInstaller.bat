@@ -1,6 +1,7 @@
 @echo off
 CLS
 echo:
+echo:
 echo ///
 echo ///
 echo ///
@@ -35,7 +36,6 @@ del il2cppassemblyunhallower.zip
 echo:
 
 for /f %%i in ('dir /b *_Data') do set data_folder=%%i
-echo %data_folder%\il2cpp_data\Metadata\global-metadata.dat
 
 echo Downloading Il2CppDumper config...
 powershell -Command "Invoke-WebRequest https://github.com/Slaynash/MelonLoaderAutoInstaller/raw/master/il2cppdumper_config.json -OutFile il2cppdumper/config.json"
@@ -47,7 +47,7 @@ move DummyDll ..\il2cppdumper_output
 cd ..
 echo:
 
-echo mkdir il2cppassemblyunhallower_output
+mkdir il2cppassemblyunhallower_output
 
 echo Running Il2CppAssemblyUnhollower
 il2cppassemblyunhallower\AssemblyUnhollower.exe il2cppdumper_output il2cppassemblyunhallower_output MelonLoader\Managed\mscorlib.dll
