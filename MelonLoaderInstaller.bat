@@ -20,19 +20,20 @@ echo:
 
 echo Downloading 7zip...
 powershell -Command "Invoke-WebRequest https://github.com/Slaynash/MelonLoaderAutoInstaller/raw/master/7z.exe -OutFile 7z.exe"
+powershell -Command "Invoke-WebRequest https://github.com/Slaynash/MelonLoaderAutoInstaller/raw/master/7z.dll -OutFile 7z.dll"
 echo:
 
 echo Downloading MelonLoader from github...
 powershell -Command "Invoke-WebRequest https://github.com/HerpDerpinstine/MelonLoader/releases/download/v0.1.0/MelonLoader.zip -OutFile melonloader.zip"
 echo Decompressing MelonLoader...
-powershell Expand-Archive melonloader.zip -DestinationPath .
+powershell Expand-Archive melonloader.zip -DestinationPath . -Force
 del melonloader.zip
 echo:
 
 echo Downloading Il2CppDumper from github...
 powershell -Command "Invoke-WebRequest https://github.com/Perfare/Il2CppDumper/releases/download/v6.2.1/Il2CppDumper-v6.2.1.zip -OutFile il2cppdumper.zip"
 echo Decompressing Il2CppDumper...
-powershell Expand-Archive il2cppdumper.zip -DestinationPath il2cppdumper
+powershell Expand-Archive il2cppdumper.zip -DestinationPath il2cppdumper -Force
 del il2cppdumper.zip
 echo:
 
@@ -66,6 +67,7 @@ echo:
 
 echo Cleaning up...
 del 7z.exe
+del 7z.dll
 rd /S /Q il2cppdumper
 rd /S /Q il2cppdumper_output
 rd /S /Q il2cppassemblyunhallower
