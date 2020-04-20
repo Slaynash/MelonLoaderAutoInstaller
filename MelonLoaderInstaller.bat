@@ -173,15 +173,24 @@ echo Copying output to MelonLoader/Managed
 robocopy il2cppassemblyunhallower_output MelonLoader\Managed /XC /XN /XO /NFL /NDL /NJH
 echo:
 
-echo [33m----------------------- Cleanup ------------------------[0m
+echo [33m-------------------- Final Cleanup ---------------------[0m
 del 7z.exe
 del 7z.dll
 rd /S /Q il2cppdumper
 rd /S /Q il2cppdumper_output
 if "%config_download_unhollower%"=="true" rd /S /Q il2cppassemblyunhallower
 rd /S /Q il2cppassemblyunhallower_output
+
+IF NOT EXIST Mods mkdir Mods
+
 echo:
 echo:
-echo [32mMelonLoader is now installed![0m
+echo [32m
+echo ^    --------------------------------------------------
+echo ^    ^|         MelonLoader is now installed!          ^|
+echo ^    --------------------------------------------------
+echo [0m
+echo:
+echo:
 
 pause
