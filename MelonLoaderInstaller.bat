@@ -1,4 +1,11 @@
 @echo off
+
+:: CONFIGURATION
+
+set config_download_unhollower=true
+
+:: CODE
+
 CLS
 
 echo:
@@ -10,10 +17,10 @@ echo ///
 echo ///
 echo [0m
 echo ^    --------------------------------------------------
-echo ^    ^| MelonLoader AutoInstaller v1.2 by Slaynash     ^|
-echo ^    ^|  - MelonLoader v0.1.0                          ^|
-echo ^    ^|  - Il2CppDumper v6.2.1                         ^|
-echo ^    ^|  - Il2CppAssemblyUnhollower v0.2.0.0           ^|
+echo ^    ^|  MelonLoader AutoInstaller v1.3 by Slaynash    ^|
+echo ^    ^|    - MelonLoader v0.1.0 by Herp Derpinstine    ^|
+echo ^    ^|    - Il2CppDumper v6.2.1 by Perfare            ^|
+echo ^    ^|    - Il2CppAssemblyUnhollower v0.2.0.0 by knah ^|
 echo ^    --------------------------------------------------
 echo:
 
@@ -94,27 +101,29 @@ echo:
 
 echo [33m------------ Il2CppAssemblyUnhollower Setup ------------[0m
 
-echo Downloading Il2CppAssemblyUnhollower from github...
-powershell -Command "Invoke-WebRequest https://github.com/knah/Il2CppAssemblyUnhollower/releases/download/v0.2.0.0/Il2CppAssemblyUnhollower.0.2.0.0.7z -OutFile il2cppassemblyunhallower.zip"
-if %errorlevel% neq 0 (
-	echo [31m
-	echo CRITICAL ERROR: Failed to download the Il2CppAssemblyUnhollower zip file.
-	echo Please report this error to the #melonloader-support channel of the MelonLoader discord ^(https://discord.gg/2Wn3N2P^).
-	echo [0m
-	pause
-	exit /b %errorlevel%
-)
-echo Decompressing Il2CppAssemblyUnhollower...
-7z x il2cppassemblyunhallower.zip -oil2cppassemblyunhallower
-if %errorlevel% neq 0 (
-	echo [31m
-	echo CRITICAL ERROR: Failed to extract the Il2CppAssemblyUnhollower zip file.
-	echo Please report this error to the #melonloader-support channel of the MelonLoader discord ^(https://discord.gg/2Wn3N2P^).
-	echo [0m
-	pause
-	exit /b %errorlevel%
-)
-del il2cppassemblyunhallower.zip
+if "%config_download_unhollower%"=="true" (
+	echo Downloading Il2CppAssemblyUnhollower from github...
+	powershell -Command "Invoke-WebRequest https://github.com/knah/Il2CppAssemblyUnhollower/releases/download/v0.2.0.0/Il2CppAssemblyUnhollower.0.2.0.0.7z -OutFile il2cppassemblyunhallower.zip"
+	if %errorlevel% neq 0 (
+		echo [31m
+		echo CRITICAL ERROR: Failed to download the Il2CppAssemblyUnhollower zip file.
+		echo Please report this error to the #melonloader-support channel of the MelonLoader discord ^(https://discord.gg/2Wn3N2P^).
+		echo [0m
+		pause
+		exit /b %errorlevel%
+	)
+	echo Decompressing Il2CppAssemblyUnhollower...
+	7z x il2cppassemblyunhallower.zip -oil2cppassemblyunhallower
+	if %errorlevel% neq 0 (
+		echo [31m
+		echo CRITICAL ERROR: Failed to extract the Il2CppAssemblyUnhollower zip file.
+		echo Please report this error to the #melonloader-support channel of the MelonLoader discord ^(https://discord.gg/2Wn3N2P^).
+		echo [0m
+		pause
+		exit /b %errorlevel%
+	)
+	del il2cppassemblyunhallower.zip
+) else echo Using preinstalled Il2CppAssemblyUnhollower
 echo:
 
 echo [33m--------------- Il2CppDumper Generation ----------------[0m
@@ -169,7 +178,7 @@ del 7z.exe
 del 7z.dll
 rd /S /Q il2cppdumper
 rd /S /Q il2cppdumper_output
-rd /S /Q il2cppassemblyunhallower
+if "%config_download_unhollower%"=="true" rd /S /Q il2cppassemblyunhallower
 rd /S /Q il2cppassemblyunhallower_output
 echo:
 echo:
