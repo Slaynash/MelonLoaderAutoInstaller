@@ -10,7 +10,7 @@ echo ///
 echo ///
 echo [0m
 echo ^    --------------------------------------------------
-echo ^    ^| MelonLoader AutoInstaller v1.1 by Slaynash     ^|
+echo ^    ^| MelonLoader AutoInstaller v1.2 by Slaynash     ^|
 echo ^    ^|  - MelonLoader v0.1.0                          ^|
 echo ^    ^|  - Il2CppDumper v6.2.1                         ^|
 echo ^    ^|  - Il2CppAssemblyUnhollower v0.2.0.0           ^|
