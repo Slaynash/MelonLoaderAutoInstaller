@@ -30,7 +30,7 @@ echo /// POWERSHELL PROGRESS OUTPUT
 echo /// POWERSHELL PROGRESS OUTPUT
 echo [0m
 echo ^    --------------------------------------------------
-echo ^    ^|  MelonLoader AutoInstaller v1.4 by Slaynash    ^|
+echo ^    ^|  MelonLoader AutoInstaller v1.4.1 by Slaynash  ^|
 echo ^    ^|    - MelonLoader v0.1.0 by Herp Derpinstine    ^|
 echo ^    ^|    - Il2CppDumper v6.2.1 by Perfare            ^|
 echo ^    ^|    - Il2CppAssemblyUnhollower v0.2.0.0 by knah ^|
@@ -198,7 +198,7 @@ mkdir il2cppassemblyunhollower_output
 
 echo Running Il2CppAssemblyUnhollower
 ::il2cppassemblyunhollower\AssemblyUnhollower.exe --input=il2cppdumper_output --output=il2cppassemblyunhollower_output --mscorlib=MelonLoader\Managed\mscorlib.dll
-if "%unhollower_over_03%"="true" (
+if "%unhollower_over_03%"=="true" (
 	il2cppassemblyunhollower\AssemblyUnhollower.exe --input=il2cppdumper/DummyDll --output=il2cppassemblyunhollower_output --mscorlib=MelonLoader\Managed\mscorlib.dll
 ) else (
 	il2cppassemblyunhollower\AssemblyUnhollower.exe il2cppdumper/DummyDll il2cppassemblyunhollower_output MelonLoader\Managed\mscorlib.dll
