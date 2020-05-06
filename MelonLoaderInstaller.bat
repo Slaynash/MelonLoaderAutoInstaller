@@ -30,7 +30,7 @@ echo /// POWERSHELL PROGRESS OUTPUT
 echo /// POWERSHELL PROGRESS OUTPUT
 echo [0m
 echo ^    --------------------------------------------------
-echo ^    ^|  MelonLoader AutoInstaller v1.4.2 by Slaynash  ^|
+echo ^    ^|  MelonLoader AutoInstaller v1.4.3 by Slaynash  ^|
 echo ^    ^|    - MelonLoader v0.1.0 by Herp Derpinstine    ^|
 echo ^    ^|    - Il2CppDumper v6.2.1 by Perfare            ^|
 echo ^    ^|    - Il2CppAssemblyUnhollower v0.2.0.0 by knah ^|
@@ -213,7 +213,7 @@ if %errorlevel% neq 0 (
 	exit /b %errorlevel%
 )
 echo Copying output to MelonLoader/Managed
-robocopy il2cppassemblyunhollower_output MelonLoader\Managed /XC /XN /XO /NFL /NDL /NJH
+%SYSTEMROOT%\System32\robocopy il2cppassemblyunhollower_output MelonLoader\Managed /XC /XN /XO /NFL /NDL /NJH
 if %errorlevel% LSS 0 (
 	echo [31m
 	echo CRITICAL ERROR: Failed to copy the generated files to the MelonLoader assembly folder ^(robocopy returned %errorlevel%^).
